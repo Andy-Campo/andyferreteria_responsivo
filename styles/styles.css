@@ -18,7 +18,6 @@ body {
   line-height: 1.5;
 }
 
-/* 1. CABECERA */
 .cabecera {
   background-color: var(--color_fondo);
   border: 2px solid var(--color_base);
@@ -83,6 +82,7 @@ body {
   font-size: 28px;
   cursor: pointer;
 }
+
 .portada {
   width: 100%;
   height: 100vh;
@@ -99,7 +99,6 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
-
 }
 
 .portada-fondo img {
@@ -169,6 +168,12 @@ body {
 .nosotros-informacion { 
   flex: 1;
   padding-left: 15px;
+}
+
+.nosotros-informacion h2 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .nosotros-informacion h3 {
@@ -286,9 +291,15 @@ body {
   justify-content: center;
 }
 
+.contenedor-ubicacion h2 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 .ubicacion-mapa {
   width: 100%;
-  max-width: 12000px;
+  max-width: 1200px;
   display: flex; /* Alinea ubicación y mapa lado a lado */
   gap: 30px;
   align-items: start;
@@ -458,8 +469,12 @@ body {
     z-index: 10;
 }
 
-/* --- RESPONSIVE: PANTALLAS PEQUEÑAS (Móviles) --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
   .hamburguesa {
     display: flex;
     padding: 10px;
@@ -474,19 +489,85 @@ body {
     display: none;
     flex-direction: column;
     gap: 25px;
-        
-    /* Posicionamiento flotante debajo del nav */
     position: absolute;
     top: 95px; 
-    left: 70%;
+    right: 0;
     border: 3px solid var(--color_base);
-    width: 30%;
-    background-color: #f4f4f4; /* Fondo del menú móvil */
+    width: 35%;
+    background-color: #f4f4f4;
     padding: 20px 0;
     box-shadow: 0px 4px 6px rgba(194, 108, 108, 0.1);
+    align-items: flex-end;
   }
 
   .menu-check:checked ~.menu-pc {
-        display: flex;
-    }
+    display: flex;
+  }
+
+  .productos, .servicios, .nosotros, .ubicacion, .horarios, .contacto {
+    padding: 30px 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .portada-texto {
+    margin: 0 auto;
+    max-width: 90%;
+  }
+
+  .contenedor-nosotros {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nosotros-video video {
+    width: 100%; 
+    height: auto;
+  }
+
+  .productos-cuadricula {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .producto-caja img {
+    height: 250px;
+  }
+
+  .contenedor-servicios {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .servicio-bloque {
+    width: 100%;
+  }
+
+  .servicio-imagen img {
+    height: 280px;
+  }
+
+  .ubicacion-mapa {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recuadro-ubicacion, .recuadro-maps {
+    width: 100%;
+  }
+  
+  .pie-contenedor {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+  .pie_direccion, .pie_horario {
+    grid-column: 1;
+    text-align: center;
+  }
+
+  .mision:hover, .vision:hover, .producto-caja:hover, .servicio-bloque:hover, .recuadro-ubicacion:hover, .tabla-atencion:hover, .pie_enlaces:hover {
+    transform: none !important; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+  }
 }
